@@ -16,15 +16,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard',[InscricaoController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
 
 
 require __DIR__.'/auth.php';
 
 
 Route::post('/store', [InscricaoController::class, 'store'])->middleware(['auth'])->name('store');
+Route::get('/atualiza',[InscricaoController::class,'atualiza'])->middleware(['auth'])->name('atualiza');
+
+Route::put('/put',[InscricaoController::class,'put'])->middleware(['auth'])->name('put');
+Route::get('/guia', [InscricaoController::class, 'guia'])->middleware(['auth'])->name('guia');
+Route::get('/pdf', [InscricaoController::class, 'pdf'])->middleware(['auth'])->name('pdf');
+
+Route::get('/lista', [InscricaoController::class, 'lista'])->middleware(['auth'])->name('lista');
+
 

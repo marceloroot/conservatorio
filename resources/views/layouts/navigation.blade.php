@@ -12,9 +12,23 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    @can('user')
+
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Inscricao') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('pdf')" :active="request()->routeIs('pdf')">
+                        {{ __('Comprovante') }}
+                    </x-nav-link>
+                    @endcan
+
+                    @can('admin')
+                    <x-nav-link :href="route('lista')" :active="request()->routeIs('lista')">
+                        {{ __('Lista') }}
+                    </x-nav-link>
+                    @endcan
+
                 </div>
             </div>
 
@@ -66,6 +80,8 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            
         </div>
 
         <!-- Responsive Settings Options -->

@@ -17,6 +17,7 @@ class CreateInscricaosTable extends Migration
             $table->id();
             $table->BigInteger('user_id')->nullable()->unsigned();
            $table->string('nome',800);
+           $table->string('cpf',14)->unique();
            $table->string('telefone',800);
            $table->string('instrumento',300);
            $table->string('turno',300);
@@ -29,7 +30,7 @@ class CreateInscricaosTable extends Migration
            $table->decimal('notafinal',5,2)->nullable();
          
 
-           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

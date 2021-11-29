@@ -11,8 +11,8 @@
     </x-slot>
     
    <div class="container">
-    <form class="mt-5" action="{{ route('store')}}" method="post">
-   
+    <form class="mt-5" action="{{ route('put',['id'=>$inscricao->id]) }}" method="post">
+      @method('PUT')
       @csrf
        
        
@@ -21,7 +21,7 @@
                  <div class="mb-3 col-6">
                    
                     <label for="nome" class="form-label">Nome <span style="color:red">*</span> </label>
-                    <input type="text" class="form-control"  id="nome" name="nome">
+                    <input type="text" class="form-control" value="{{$inscricao->nome}}" id="nome" name="nome">
                     @if($errors->has('nome'))
                       <div class="error">{{ $errors->first('nome') }}</div>
                     @endif
@@ -30,7 +30,7 @@
                   <div class="mb-3 col-6">
                    
                     <label for="nome" class="form-label">CPF <span style="color:red">*</span></label>
-                    <input type="text" class="form-control" onblur="isOnblurCpf()" required id="cpf" name="cpf">
+                    <input type="text" class="form-control" value="{{$inscricao->cpf}}" i onblur="isOnblurCpf()" required id="cpf" name="cpf">
                     @if($errors->has('cpf'))
                       <div class="error">{{ $errors->first('cpf') }}</div>
                     @endif
@@ -44,7 +44,7 @@
 
                   <div class="mb-3  col-6">
                     <label for="tags" class="form-label">Data Nascimento <span style="color:red">*</span></label>
-                    <input type="date" class="form-control" required name="datanasc" id="datanasc" onchange="validaDataInstrumento()" onblur="onBlurDataNasc()">
+                    <input type="date" class="form-control" value="{{$inscricao->datanasc}}" i required name="datanasc" id="datanasc" onchange="validaDataInstrumento()" onblur="onBlurDataNasc()">
                     @if($errors->has('datanasc'))
                     <div class="error">{{ $errors->first('datanasc') }}</div>
                     @endif
@@ -52,7 +52,7 @@
 
                   <div class="mb-3  col-6">
                     <label for="tags" class="form-label">telefone <span style="color:red">*</span></label>
-                    <input type="text" class="form-control" required name="telefone" id="telefone">
+                    <input type="text" class="form-control" required  value="{{$inscricao->telefone}}" name="telefone" id="telefone">
                     @if($errors->has('telefone'))
                     <div class="error">{{ $errors->first('telefone') }}</div>
                     @endif
@@ -67,11 +67,13 @@
 
                   <div class="mb-3  col-6">
                     <label for="tags" class="form-label">Turno <span style="color:red">*</span></label>
-                    <select class="form-select" name="turno" required id="turno" aria-label="Default select example" onchange="validaHorarioInstrumento()">
-                        <option  value="">Selecione um Turno</option>
-                        <option value="Manha">Manha</option>
-                        <option value="Tarde">Tarde</option>
-                        <option value="Noite">Noite</option>
+                    <select class="form-select" name="turno" required id="turno"  aria-label="Default select example" onchange="validaHorarioInstrumento()">
+                       <option  value="">Selecione um Turno</option>
+                      
+                            <option value="Manha">Manha</option>
+                            <option value="Tarde">Tarde</option>
+                            <option value="Noite">Noite</option>
+                       
                       </select>
                     @if($errors->has('turno'))
                     <div class="error">{{ $errors->first('turno') }}</div>
@@ -107,7 +109,7 @@
                   <div class="row">
                     <div class="mb-3  col-6">
                       <label for="tags" class="form-label">Cursando escola publica <span style="color:red">*</span></label>
-                      <select class="form-select" name="cursandoensino" required id="cursandoensino" aria-label="Default select example">
+                      <select class="form-select" name="cursandoensino"  required id="cursandoensino" aria-label="Default select example">
                         <option value="">Selecione uma opcao</option>
                         <option value="Sim">Sim</option>
                         <option value="Nao">Nao</option>
@@ -124,7 +126,7 @@
 
                     <div class="mb-3  col-6">
                         <label for="tags" class="form-label">Cursando qual instituicao </label>
-                        <input type="text" class="form-control" name="nomeinstituicao" id="nomeinstituicao">
+                        <input type="text" class="form-control" value="{{$inscricao->nomeinstituicao}}" name="nomeinstituicao" id="nomeinstituicao">
                         @if($errors->has('nomeinstituicao'))
                         <div class="error">{{ $errors->first('nomeinstituicao') }}</div>
                         @endif
@@ -149,7 +151,7 @@
 
                 
 
-                  <button class="btn btn-danger mt-10" style="display:inline"  type="submit">Inscrever-se</button>
+                  <button class="btn btn-danger mt-10" style="display:inline"  type="submit">Atualizar</button>
                   
            
         </form>
@@ -164,7 +166,63 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" crossorigin="anonymous"></script>
 
 <script>
+  //document.getElementById("instrumento").disabled = true;
+  //document.getElementById("turno").disabled = true;
+ 
+    // ---------------------Comeco Turno----------------------------
+      //Variavel para Turno
+      turno =   {!! json_encode($inscricao->turno) !!}
+      //pega o Turno
+      var selectTurno = document.getElementById('turno');
+      for(i=0;i<=selectTurno.options.length  -1;i++){ 
+                    if(selectTurno.options[i].value == turno){
+                      selectTurno.options[i].selected = true;
+          }
+        }
+     
+   //--------------------Fim Turno -----------------------------------
 
+
+    // ---------------------Comeco escola publica----------------------------
+      //Variavel para escolapublica
+      escolapublica =   {!! json_encode($inscricao->cursandoensino) !!}
+      //pega o escolapublica
+      var selectPublica = document.getElementById('cursandoensino');
+      for(i=0;i<=selectPublica.options.length  -1;i++){ 
+                    if(selectPublica.options[i].value == escolapublica){
+                      selectPublica.options[i].selected = true;
+          }
+        }
+     
+    //--------------------Fim escola publica -----------------------------------
+    
+  
+    // ---------------------Comeco Toca Instrumento----------------------------
+      //Variavel para escolapublica
+      jatocainstrumento =   {!! json_encode($inscricao->jatocainstrumento) !!}
+      //pega o instrumento
+      var selectjatocainstrumento = document.getElementById('jatocainstrumento');
+      for(i=0;i<=selectjatocainstrumento.options.length  -1;i++){ 
+                    if(selectjatocainstrumento.options[i].value == jatocainstrumento){
+                      selectjatocainstrumento.options[i].selected = true;
+          }
+        }
+     
+    //--------------------Fim Toca Instrumento -----------------------------------
+
+
+  // ---------------------Comeco instrumento----------------------------
+      //Variavel para instrumento
+      instrumento =   {!! json_encode($inscricao->instrumento) !!}
+      //pega o instrumento
+      var selectInstrumento = document.getElementById('instrumento');
+      for(i=0;i<=selectInstrumento.options.length -1;i++){ 
+                    if(selectInstrumento.options[i].value == instrumento){
+                      selectInstrumento.options[i].selected = true;
+                    }
+        }
+//--------------------Fim Instrumento -----------------------------------
+  
 function onBlurDataNasc(){
   document.getElementById("instrumento").value = "";
   document.getElementById("turno").value = "";
@@ -218,8 +276,7 @@ $('#cpf').mask('000.000.000-00', {
 function calculaIdade(nascimento, hoje){
     return Math.floor(Math.ceil(Math.abs(nascimento.getTime() - hoje.getTime()) / (1000 * 3600 * 24)) / 365.25);
 }
-  document.getElementById("instrumento").disabled = true;
-  document.getElementById("turno").disabled = true;
+
 
    function validaDataInstrumento()
    {
@@ -246,7 +303,7 @@ function calculaIdade(nascimento, hoje){
         if(idade <= 15 )
         {
            
-           for(i=0;i<=select.options.length -1;i++){ 
+           for(i=0;i<=select.options.length;i++){ 
                if(select.options[i].value == "Canto Popular" || select.options[i].value == "Canto Lirico" ){
                    select.options[i].disabled = true;
                }
@@ -254,7 +311,7 @@ function calculaIdade(nascimento, hoje){
 
        }
        else{
-        for(i=0;i<=select.options.length-1;i++){ 
+        for(i=0;i<=select.options.length;i++){ 
                if(select.options[i].value == "Canto Popular" || select.options[i].value == "Canto Lirico" ){
                    select.options[i].disabled = false;
                }
@@ -279,7 +336,7 @@ function calculaIdade(nascimento, hoje){
 
         if(data == "Manha"){
            
-            for(i=0;i<=select.options.length -1;i++){ 
+            for(i=0;i<=select.options.length;i++){ 
                 if(select.options[i].value == "Canto Popular" || select.options[i].value == "Viola Caipira" ){
                     select.options[i].disabled = true;
                 }
@@ -287,7 +344,7 @@ function calculaIdade(nascimento, hoje){
 
         }
         else{
-          for(i=0;i<=select.options.length-1;i++){ 
+          for(i=0;i<=select.options.length;i++){ 
                 if(select.options[i].value == "Canto Popular" || select.options[i].value == "Viola Caipira" ){
                     select.options[i].disabled = false;
                 }

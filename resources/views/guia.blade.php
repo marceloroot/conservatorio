@@ -23,6 +23,7 @@
     <h3> TURNO: {{Str::upper($data->turno)}}</h3>
     <h3> DATA NASCIMENTO: {{ Str::upper(date('d/m/Y', strtotime($data->datanasc))) }}</h3>
     <h3> TELEFONE: {{Str::upper($data->telefone) }}</h3>
+    <h3> PCD: {{Str::upper($data->pcd) }}</h3>
     <h3> CURSANDO ESCOLA PUBLICA: {{Str::upper($data->cursandoensino) }}</h3>
     <h3> JA TOCA INSTRUMENTO: {{Str::upper($data->jatocainstrumento) }}</h3>
     <h3> QUAL INSTITUICAO: {{Str::upper($data->jatocainstrumento) }}</h3>

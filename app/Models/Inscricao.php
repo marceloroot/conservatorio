@@ -11,7 +11,7 @@ use DOMXPath;
 class Inscricao extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome','cpf','telefone', 'instrumento', 'turno','cursandoensino','jatocainstrumento', 'datanasc','nomeinstituicao','user_id'];
+    protected $fillable = ['nome','cpf','telefone', 'instrumento', 'turno','cursandoensino','jatocainstrumento', 'datanasc','nomeinstituicao','pcd','nota1','nota2','notafinal','user_id'];
       
     static $rules =[
         'nome'=>'required',

@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Inscricao (A idade para inscrever-se tem que ser maior que 10 anos e canto maior que 15 anos)') }}
+            {{ __('Inscrição (A idade para inscrever-se tem que ser maior que 10 anos e canto maior que 15 anos)') }}
            
         </h2>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-          Campos com <span style="color:red">*</span> sao obrigatorios
+          Campos com <span style="color:red">*</span> sao obrigatório
          
       </h2>
     </x-slot>
@@ -146,6 +146,19 @@
                         <div class="error">{{ $errors->first('jatocainstrumento') }}</div>
                         @endif
                       </div>
+
+
+                      <div class="mb-3  col-6">
+                        <label for="tags" class="form-label">Pessoa com Deficiência<span style="color:red">*</span></label>
+                        <select class="form-select" name="pcd" required id="pcd" aria-label="pcd">
+                          <option value="">Selecione uma opcao</option>
+                          <option value="Sim">Sim</option>
+                          <option value="Nao">Nao</option>
+                        </select>
+                        @if($errors->has('pcd'))
+                        <div class="error">{{ $errors->first('pcd') }}</div>
+                        @endif
+                      </div>
                   </div>
 
 
@@ -222,6 +235,24 @@
                     }
         }
 //--------------------Fim Instrumento -----------------------------------
+
+
+
+
+
+
+    // ---------------------Comeco PCD----------------------------
+      //Variavel para escolapublica
+      pcd =   {!! json_encode($inscricao->pcd) !!}
+      //pega o escolapublica
+      var selectPcd = document.getElementById('pcd');
+      for(i=0;i<=selectPcd.options.length  -1;i++){ 
+                    if(selectPcd.options[i].value == pcd){
+                      selectPcd.options[i].selected = true;
+          }
+        }
+     
+    //--------------------Fim PCD-----------------------------------
   
 function onBlurDataNasc(){
   document.getElementById("instrumento").value = "";

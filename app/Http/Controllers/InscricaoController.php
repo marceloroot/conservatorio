@@ -128,8 +128,41 @@ class InscricaoController extends Controller
         if(auth()->user()->can('user')){
             return redirect()->route('dashboard');
           }
-    
+         
         $data  = Inscricao::all();
         return View('lista',compact('data'));
+    }
+
+
+    public function cadastronotas($id){
+        if(auth()->user()->can('user')){
+            return redirect()->route('dashboard');
+          }
+         
+        if($id){
+            $inscricao = Inscricao::find($id);
+            
+           return View('cadastronotas',['inscricao'=> $inscricao]);
+        }
+
+        return redirect()->route('lista');
+    }
+
+    public function storenotas($id,Request $request){
+
+        if(auth()->user()->can('user')){
+            return redirect()->route('dashboard');
+          }
+         
+        if($id){
+            $resultado =Inscricao::where('id',$id)->first();
+
+            $resultado->fill($request->all());
+            if($resultado->save()){
+              return redirect()->route('lista');
+            }
+         }
+
+        return View('cadastronotas');
     }
 }

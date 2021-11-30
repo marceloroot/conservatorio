@@ -24,6 +24,7 @@ class CreateInscricaosTable extends Migration
            $table->string('cursandoensino',300);
            $table->string('nomeinstituicao',300)->nullable();
            $table->string('jatocainstrumento',300);
+           $table->string('pcd',4);
            $table->date('datanasc');
            $table->decimal('nota1',5,2)->nullable();
            $table->decimal('nota2',5,2)->nullable();;

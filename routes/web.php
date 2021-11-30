@@ -32,5 +32,6 @@ Route::get('/guia', [InscricaoController::class, 'guia'])->middleware(['auth'])-
 Route::get('/pdf', [InscricaoController::class, 'pdf'])->middleware(['auth'])->name('pdf');
 
 Route::get('/lista', [InscricaoController::class, 'lista'])->middleware(['auth'])->name('lista');
+Route::get('/cadastronotas/{id}', [InscricaoController::class, 'cadastronotas'])->middleware(['auth'])->name('cadastronotas');
 
-
+Route::post('/storenotas/{id}', [InscricaoController::class, 'storenotas'])->middleware(['auth'])->name('storenotas');

@@ -67,7 +67,7 @@
 
                   <div class="mb-3  col-6">
                     <label for="tags" class="form-label">Turno <span style="color:red">*</span></label>
-                    <select class="form-select" name="turno" required id="turno" aria-label="Default select example" onchange="validaHorarioInstrumento()">
+                    <select class="form-select" name="turno" required id="turno" aria-label="Default select example" >
                         <option  value="">Selecione um Turno</option>
                         <option value="Manha">Manha</option>
                         <option value="Tarde">Tarde</option>
@@ -92,6 +92,7 @@
                     <option value="Percusao/Bateria">Percusao/Bateria</option>
                     <option value="Flauta Doce">Flauta Doce</option>
                     <option value="Violao Popular">Violao Popular</option>
+                    <option value="Violao Eurudito">Violao Eurudito</option>
                     <option value="Viola Caipira">Viola Caipira</option>
                     <option value="Metais">Metais</option>
                   </select>

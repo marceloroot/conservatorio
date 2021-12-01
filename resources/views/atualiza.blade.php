@@ -94,6 +94,7 @@
                     <option value="Percusao/Bateria">Percusao/Bateria</option>
                     <option value="Flauta Doce">Flauta Doce</option>
                     <option value="Violao Popular">Violao Popular</option>
+                    <option value="Violao Eurudito">Violao Eurudito</option>
                     <option value="Viola Caipira">Viola Caipira</option>
                     <option value="Metais">Metais</option>
                   </select>

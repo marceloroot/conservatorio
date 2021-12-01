@@ -114,10 +114,7 @@
             },
             'colvis'
              ],
-             columnDefs: [ {
-            targets: 1,
-            visible: false
-        } ]
+            
           });
     });
     </script>

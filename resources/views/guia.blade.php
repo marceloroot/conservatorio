@@ -16,7 +16,8 @@
       <img src="https://www.novaconcursos.com.br/portal/wp-content/uploads/2015/07/Prefeitura-de-alfenas.jpg" style="max-width:80px;max-height:80px; margin-top:15px" />
       <span style="font-size:28px; font-weight: bold;"> Prefeitura Municipal de Alfenas</span>
     </div>
-     <h2>COMPROVANTE DE NUMERO: {{$data->id}}</h2>
+    <h2>COMPROVANTE DE NUMERO: {{$data->id}}</h2>
+    <h3>DATA DA INCRIÇÃO: {{ Str::upper(date('d/m/Y H:m', strtotime($data->created_at))) }}</h3>
     <h3>NOME: {{  Str::upper($data->nome) }}</h3>
     <h3>CPF: {{ Str::upper($data->cpf) }}</h3>
     <h3> CURSO: {{Str::upper($data->instrumento)}}</h3>

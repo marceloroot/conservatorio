@@ -189,7 +189,7 @@
       //pega o Turno
       var selectTurno = document.getElementById('turno');
       for(i=0;i<=selectTurno.options.length  -1;i++){ 
-                    if(selectTurno.options[i].value == turno){
+                    if(selectTurno.item(i).value == turno){
                       selectTurno.options[i].selected = true;
           }
         }
@@ -203,7 +203,7 @@
       //pega o escolapublica
       var selectPublica = document.getElementById('cursandoensino');
       for(i=0;i<=selectPublica.options.length  -1;i++){ 
-                    if(selectPublica.options[i].value == escolapublica){
+                    if(selectPublica.item(i).value == escolapublica){
                       selectPublica.options[i].selected = true;
           }
         }
@@ -217,7 +217,7 @@
       //pega o instrumento
       var selectjatocainstrumento = document.getElementById('jatocainstrumento');
       for(i=0;i<=selectjatocainstrumento.options.length  -1;i++){ 
-                    if(selectjatocainstrumento.options[i].value == jatocainstrumento){
+                    if(selectjatocainstrumento.item(i).value == jatocainstrumento){
                       selectjatocainstrumento.options[i].selected = true;
           }
         }
@@ -231,7 +231,7 @@
       //pega o instrumento
       var selectInstrumento = document.getElementById('instrumento');
       for(i=0;i<=selectInstrumento.options.length -1;i++){ 
-                    if(selectInstrumento.options[i].value == instrumento){
+                    if(selectInstrumento.item(i).value == instrumento){
                       selectInstrumento.options[i].selected = true;
                     }
         }
@@ -248,7 +248,7 @@
       //pega o escolapublica
       var selectPcd = document.getElementById('pcd');
       for(i=0;i<=selectPcd.options.length  -1;i++){ 
-                    if(selectPcd.options[i].value == pcd){
+                    if(selectPcd.item(i).value == pcd){
                       selectPcd.options[i].selected = true;
           }
         }
@@ -317,12 +317,12 @@ function calculaIdade(nascimento, hoje){
    
         //pega o instrumento
         var select = document.getElementById('instrumento');
-        
+        var selectturno = document.getElementById('turno');
+
         var dataNascimento = new Date(data);
         var dataatual = new Date();
         //Caucula idade
         var idade=  calculaIdade(dataNascimento,dataatual);
-        
         if(idade >= 10){
             document.getElementById("instrumento").disabled = false;
             document.getElementById("turno").disabled = false;   
@@ -331,12 +331,34 @@ function calculaIdade(nascimento, hoje){
             document.getElementById("instrumento").disabled = true;
             document.getElementById("turno").disabled = true; 
         }
+    
+        //CAULCULA O NOTURNO SE FOR MAIOR DE IDADE DE
+        if(idade < 16 )
+        {
+           
+           for(i=0;i<=selectturno.options.length -1;i++){ 
+             console.log(selectturno.item(i).value);
+               if(selectturno.item(i).value == "Noite" ){
+                selectturno.options[i].disabled = true;
+               }
+           }
+
+       }
+       else{
+        for(i=0;i<=selectturno.options.length-1;i++){ 
+               if(selectturno.item(i).value == "Noite"){
+                selectturno.options[i].disabled = false;
+               }
+           }
+       }
+         
 
         if(idade <= 15 )
         {
-           
+         
            for(i=0;i<=select.options.length;i++){ 
-               if(select.options[i].value == "Canto Popular" || select.options[i].value == "Canto Lirico" ){
+           
+               if(select.item(i).value === "Canto Popular" || select.item(i).value === "Canto Lirico" ){
                    select.options[i].disabled = true;
                }
            }
@@ -344,11 +366,14 @@ function calculaIdade(nascimento, hoje){
        }
        else{
         for(i=0;i<=select.options.length;i++){ 
-               if(select.options[i].value == "Canto Popular" || select.options[i].value == "Canto Lirico" ){
+     
+               if(select.item(i).value === "Canto Popular" || select.item(i).value === "Canto Lirico" ){
                    select.options[i].disabled = false;
                }
            }
        }
+
+
          
        
      }
@@ -369,7 +394,7 @@ function calculaIdade(nascimento, hoje){
         if(data == "Manha"){
            
             for(i=0;i<=select.options.length;i++){ 
-                if(select.options[i].value == "Canto Popular" || select.options[i].value == "Viola Caipira" ){
+                if(select.item(i).value == "Canto Popular" || select.item(i).value == "Viola Caipira" ){
                     select.options[i].disabled = true;
                 }
             }
@@ -377,7 +402,7 @@ function calculaIdade(nascimento, hoje){
         }
         else{
           for(i=0;i<=select.options.length;i++){ 
-                if(select.options[i].value == "Canto Popular" || select.options[i].value == "Viola Caipira" ){
+                if(select.item(i).value == "Canto Popular" || select.item(i).value == "Viola Caipira" ){
                     select.options[i].disabled = false;
                 }
             }

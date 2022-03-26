@@ -67,7 +67,7 @@
 
                   <div class="mb-3  col-6">
                     <label for="tags" class="form-label">Turno <span style="color:red">*</span></label>
-                    <select class="form-select" name="turno" required id="turno" aria-label="Default select example" >
+                    <select class="form-select" name="turno" required id="turno" onchange="validaHorarioInstrumento()" aria-label="Default select example" >
                         <option  value="">Selecione um Turno</option>
                         <option value="Manha">Manha</option>
                         <option value="Tarde">Tarde</option>
@@ -232,8 +232,8 @@ $('#cpf').mask('000.000.000-00', {
 function calculaIdade(nascimento, hoje){
     return Math.floor(Math.ceil(Math.abs(nascimento.getTime() - hoje.getTime()) / (1000 * 3600 * 24)) / 365.25);
 }
-  document.getElementById("instrumento").disabled = true;
-  document.getElementById("turno").disabled = true;
+   document.getElementById("instrumento").disabled = true;
+   document.getElementById("turno").disabled = true;
 
    function validaDataInstrumento()
    {
@@ -242,12 +242,13 @@ function calculaIdade(nascimento, hoje){
    
         //pega o instrumento
         var select = document.getElementById('instrumento');
+        var selectturno = document.getElementById('turno');
         
         var dataNascimento = new Date(data);
         var dataatual = new Date();
         //Caucula idade
         var idade=  calculaIdade(dataNascimento,dataatual);
-        
+        console.log(idade);
         if(idade >= 10){
             document.getElementById("instrumento").disabled = false;
             document.getElementById("turno").disabled = false;   
@@ -261,7 +262,7 @@ function calculaIdade(nascimento, hoje){
         {
            
            for(i=0;i<=select.options.length -1;i++){ 
-               if(select.options[i].value == "Canto Popular" || select.options[i].value == "Canto Lirico" ){
+               if(select.item(i).value == "Canto Popular" || select.item(i).value == "Canto Lirico" ){
                    select.options[i].disabled = true;
                }
            }
@@ -269,12 +270,30 @@ function calculaIdade(nascimento, hoje){
        }
        else{
         for(i=0;i<=select.options.length-1;i++){ 
-               if(select.options[i].value == "Canto Popular" || select.options[i].value == "Canto Lirico" ){
+               if(select.item(i).value == "Canto Popular" || select.item(i).value == "Canto Lirico" ){
                    select.options[i].disabled = false;
                }
            }
        }
-         
+
+        //CAULCULA O NOTURNO SE FOR MAIOR DE IDADE DE
+        if(idade < 16 )
+        {
+           
+           for(i=0;i<=selectturno.options.length -1;i++){ 
+               if(selectturno.item(i).value == "Noite" ){
+                selectturno.options[i].disabled = true;
+               }
+           }
+
+       }
+       else{
+        for(i=0;i<=selectturno.options.length-1;i++){ 
+               if(selectturno.item(i).value == "Noite"){
+                selectturno.options[i].disabled = false;
+               }
+           }
+       }
        
      }
     }  
@@ -290,11 +309,10 @@ function calculaIdade(nascimento, hoje){
         //pega o instrumento
         var select = document.getElementById('instrumento');
           
-
         if(data == "Manha"){
            
             for(i=0;i<=select.options.length -1;i++){ 
-                if(select.options[i].value == "Canto Popular" || select.options[i].value == "Viola Caipira" ){
+                if(select.item(i).value == "Canto Popular" || select.item(i).value == "Viola Caipira" ){
                     select.options[i].disabled = true;
                 }
             }
@@ -302,7 +320,7 @@ function calculaIdade(nascimento, hoje){
         }
         else{
           for(i=0;i<=select.options.length-1;i++){ 
-                if(select.options[i].value == "Canto Popular" || select.options[i].value == "Viola Caipira" ){
+                if(select.item(i).value == "Canto Popular" || select.item(i).value == "Viola Caipira" ){
                     select.options[i].disabled = false;
                 }
             }

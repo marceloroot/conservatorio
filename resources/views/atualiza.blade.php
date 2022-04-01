@@ -96,6 +96,9 @@
                     <option value="Violao Popular">Violao Popular</option>
                     <option value="Violao Eurudito">Violao Eurudito</option>
                     <option value="Viola Caipira">Viola Caipira</option>
+                    <option value="Violino">Violino</option>
+                    <option value="Viola de Arco">Viola de Arco</option>
+                    <option value="Violoncelo">Violoncelo</option>
                     <option value="Metais">Metais</option>
                   </select>
                 @if($errors->has('instrumento'))

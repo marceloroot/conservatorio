@@ -394,24 +394,6 @@ function calculaIdade(nascimento, hoje){
         var select = document.getElementById('instrumento');
           
 
-        if(data == "Manha"){
-           
-            for(i=0;i<=select.options.length;i++){ 
-                if(select.item(i).value == "Canto Popular" || select.item(i).value == "Viola Caipira" ){
-                    select.options[i].disabled = true;
-                }
-            }
-
-        }
-        else{
-          for(i=0;i<=select.options.length;i++){ 
-                if(select.item(i).value == "Canto Popular" || select.item(i).value == "Viola Caipira" ){
-                    select.options[i].disabled = false;
-                }
-            }
-
-        }
-     }
     }  
     
 

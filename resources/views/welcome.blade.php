@@ -41,9 +41,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('/dashboard') }}">Inscricao</a></li>
                     @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Entrar</a></li>
-                    @if (Route::has('register'))
-                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Inscrever-se</a></li>
-                    @endif
+                   
                     @endauth
                 </ul>
             </div>
@@ -57,7 +55,7 @@
                 @auth
                 <a class="btn btn-primary btn-xl rounded-pill mt-5"  href="{{ route('dashboard') }}">Ver Inscrição</a>
                 @else
-                <a class="btn btn-primary btn-xl rounded-pill mt-5"  href="{{ route('register') }}">Inscreva-se aqui</a>
+                <a class="btn btn-primary btn-xl rounded-pill mt-5"  href="#">Inscrição Encerrada</a>
                 @endauth
 
                 <a class="btn btn-primary btn-xl rounded-pill mt-5" target="_blank" href="http://editais.alfenas.mg.gov.br/Uploads/ArquivoSecretaria/202204011020490.pdf">Manual do Candidato</a>

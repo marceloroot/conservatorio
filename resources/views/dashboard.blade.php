@@ -20,7 +20,7 @@
               <div class="row">
                  <div class="mb-3 col-6">
                    
-                    <label for="nome" class="form-label">Nome <span style="color:red">*</span> </label>
+                    <label for="nome" class="form-label">Nome Completo <span style="color:red">*</span> </label>
                     <input type="text" class="form-control"  id="nome" name="nome">
                     @if($errors->has('nome'))
                       <div class="error">{{ $errors->first('nome') }}</div>

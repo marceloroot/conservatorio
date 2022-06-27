@@ -58,7 +58,7 @@
                 <a href="{{ route('register') }}" class="btn btn-primary btn-xl rounded-pill mt-5"  href="#">Inscrições</a>
                 @endauth
 
-                <a class="btn btn-primary btn-xl rounded-pill mt-5" target="_blank" href="http://editais.alfenas.mg.gov.br/Uploads/ArquivoSecretaria/202204011020490.pdf">Manual do Candidato</a>
+                <a class="btn btn-primary btn-xl rounded-pill mt-5" target="_blank" href="http://editais.alfenas.mg.gov.br/Uploads/ArquivoSecretaria/202206271327310.pdf">Manual do Candidato</a>
             </div>
         </div>
         <div class="bg-circle-1 bg-circle"></div>

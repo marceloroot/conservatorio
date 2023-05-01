@@ -25,6 +25,7 @@
         <th>Cadastro de  Notas</th>
         <th>CODIGO</th>
         <th>NOME</th>
+        <th>EMAIL</th>
         <th>CPF</th>
         <th>TELEFONE</th>
         <th>DATA NASCIMENTO</th>
@@ -55,6 +56,7 @@
             <td><a href="{{ route('cadastronotas',['id'=>$item->id])}}" class="btn btn-primary btn-sm">Cadastrar</a></td>
             <td>{{$item->id}}</td>
             <td>{{Str::upper($item->nome)}}</td>
+            <td>{{Str::upper($item->email)}}</td>
             <td>{{Str::upper($item->cpf)}}</td>
             <td>{{Str::upper($item->telefone)}}</td>
             <td>{{ Str::upper(date('d/m/Y', strtotime($item->datanasc))) }}</td>

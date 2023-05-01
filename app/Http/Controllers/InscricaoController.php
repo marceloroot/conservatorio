@@ -24,7 +24,7 @@ class InscricaoController extends Controller
 
     public function store(Request $request)
     {
-        return redirect()->route('dashboard');
+        // return redirect()->route('dashboard');
         $curso = Inscricao::Where('user_id', auth()->user()->id)->first();
         if ($curso) {
             return redirect()->route('dashboard');
@@ -65,7 +65,7 @@ class InscricaoController extends Controller
     public function put(Request $request)
     {
 
-        return redirect()->route('dashboard');
+        // return redirect()->route('dashboard');
         $inscricao = Inscricao::Where('user_id', auth()->user()->id)->first();
         $cpfExiste = Inscricao::where('cpf', $request->cpf);
 

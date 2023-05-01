@@ -1,0 +1,6 @@
+composer installation
+php artisan migrate    
+
+Spatie, permission
+PS C:\xampp\htdocs\prefeitura\conservatorio> php artisan permission:create-permission "admin" web
+PS C:\xampp\htdocs\prefeitura\conservatorio> php artisan permission:create-permission "user" web

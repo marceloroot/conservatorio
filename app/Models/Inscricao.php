@@ -11,10 +11,11 @@ use DOMXPath;
 class Inscricao extends Model
 {
     use HasFactory;
-    protected $fillable = ['nome','cpf','telefone', 'instrumento', 'turno','cursandoensino','jatocainstrumento', 'datanasc','nomeinstituicao','pcd','nota1','nota2','notafinal','user_id'];
+    protected $fillable = ['nome','email','cpf','telefone', 'instrumento', 'turno','cursandoensino','jatocainstrumento', 'datanasc','nomeinstituicao','pcd','nota1','nota2','notafinal','user_id'];
       
     static $rules =[
         'nome'=>'required',
+        'email'=>'required',
         'cpf' =>'required|unique:inscricaos',
         'telefone'=>'required',
         'instrumento'=>'required|',
@@ -26,6 +27,7 @@ class Inscricao extends Model
 
     static $rulesUpdade =[
         'nome'=>'required',
+        'email'=>'required',
         'cpf' =>'required',
         'telefone'=>'required',
         'instrumento'=>'required|',

@@ -17,6 +17,7 @@ class CreateInscricaosTable extends Migration
             $table->id();
             $table->BigInteger('user_id')->nullable()->unsigned();
            $table->string('nome',800);
+           $table->string('email',800);
            $table->string('cpf',14)->unique();
            $table->string('telefone',800);
            $table->string('instrumento',300);

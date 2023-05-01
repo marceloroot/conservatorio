@@ -15,9 +15,9 @@
    
       @csrf
        
-       
-              
+   
               <div class="row">
+                
                  <div class="mb-3 col-6">
                    
                     <label for="nome" class="form-label">Nome Completo <span style="color:red">*</span> </label>
@@ -26,6 +26,7 @@
                       <div class="error">{{ $errors->first('nome') }}</div>
                     @endif
                   </div>
+                  
 
                   <div class="mb-3 col-6">
                    
@@ -162,6 +163,23 @@
                         @endif
                       </div>
                   </div>
+
+                  <div class="row">
+                
+                    <div class="mb-3 col-6">
+                      
+                       <label for="email" class="form-label">Email<span style="color:red">*</span> </label>
+                       <input type="text" class="form-control"  id="email" name="email">
+                       @if($errors->has('email'))
+                         <div class="error">{{ $errors->first('email') }}</div>
+                       @endif
+                     </div>
+                     
+            
+                
+            
+                   </div>
+                          
 
 
                 

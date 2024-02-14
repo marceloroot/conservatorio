@@ -100,6 +100,7 @@
                     <option value="Violoncelo">Violoncelo</option>
                     <option value="Metais">Metais</option> --}}
                     <option value="Guitarra e Contrabaixo Elétrico">Guitarra e Contrabaixo Elétrico</option>
+                    <option value="Violoncelo">Violoncelo</option>
                     <option value="Violão Erudito">Violão Erudito</option>
                     <option value="Viola Caipira">Viola Caipira</option>
                   </select>

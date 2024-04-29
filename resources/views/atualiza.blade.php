@@ -95,15 +95,15 @@
                     <option value="Flauta Doce">Flauta Doce</option>
                     <option value="Violao Popular">Violao Popular</option>
                     <option value="Violao Eurudito">Violao Eurudito</option>
-                    <option value="Viola Caipira">Viola Caipira</option>
+                    <option value="Contrabaixo Elétrico">Contrabaixo Elétrico</option>
                     <option value="Violino">Violino</option>
                     <option value="Viola de Arco">Viola de Arco</option>
                     <option value="Violoncelo">Violoncelo</option>
                     <option value="Metais">Metais</option>
-                    <option value="Guitarra e Contrabaixo Elétrico">Guitarra e Contrabaixo Elétrico</option>
+                    <option value="Guitarra">Guitarra</option>
                     <option value="Violoncelo">Violoncelo</option>
                     <option value="Violão Erudito">Violão Erudito</option>
-                    <option value="Viola Caipira">Viola Caipira</option>
+
                   </select>
                 @if($errors->has('instrumento'))
                 <div class="error">{{ $errors->first('instrumento') }}</div>

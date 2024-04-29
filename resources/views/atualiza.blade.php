@@ -85,7 +85,7 @@
 
                 <label for="texto" class="form-label">Instrumento <span style="color:red">*</span></label>
                 <select class="form-select" name="instrumento" required  id="instrumento"  aria-label="Default select example">
-                    {{-- <option  value="">Selecione um instrumento</option>
+                    <option  value="">Selecione um instrumento</option>
                     <option value="Saxofone">Saxofone</option>
                     <option value="Clarinete">Clarinete</option>
                     <option value="Canto Popular">Canto Popular</option>
@@ -99,7 +99,7 @@
                     <option value="Violino">Violino</option>
                     <option value="Viola de Arco">Viola de Arco</option>
                     <option value="Violoncelo">Violoncelo</option>
-                    <option value="Metais">Metais</option> --}}
+                    <option value="Metais">Metais</option>
                     <option value="Guitarra e Contrabaixo Elétrico">Guitarra e Contrabaixo Elétrico</option>
                     <option value="Violoncelo">Violoncelo</option>
                     <option value="Violão Erudito">Violão Erudito</option>

@@ -1,7 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
+      <h2 class="flex  items-center justify-center font-semibold text-xl text-gray-800 leading-tight mb-2 font-bold text-2xl">
+        {{ __('Atualizar Dados') }}
+       
+    </h2>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Inscrição (A idade para inscrever-se tem que ser maior que 10 anos e canto maior que 15 anos)') }}
+            {{ __('Inscrição (A idade para inscrever-se tem que ser maior que 10 anos para instrumentos e canto maior que 15 anos e musicalização infantil entre 8 e 9 anos)') }}
            
         </h2>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">

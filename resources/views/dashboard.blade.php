@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Inscrição (A idade para inscrever-se tem que ser maior que 10 anos e canto maior que 15 anos)') }}
+            {{ __('Inscrição (A idade para inscrever-se tem que ser maior que 10 anos para instrumentos e canto maior que 15 anos e musicalização infantil entre 8 e 9 anos)') }}
            
         </h2>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -102,6 +102,7 @@
                     <option value="Guitarra">Guitarra </option>
                     <option value="Violoncelo">Violoncelo</option>
                     <option value="Violão Erudito">Violão Erudito</option>
+                    <option value="Musicalização Infantil">Musicalização Infantil</option>
 
                   </select>
                 @if($errors->has('instrumento'))
@@ -215,8 +216,8 @@ function onBlurDataNasc(){
 
   var dataMinima = new Date();
   //Data Minima
-  dataMinima.setFullYear(dataMinima.getFullYear() -10);
- 
+  dataMinima.setFullYear(dataMinima.getFullYear() -8);
+  
   if(dataNascimento >= dataMinima){
     document.getElementById("datanasc").value =" ";
   }
@@ -273,8 +274,8 @@ function calculaIdade(nascimento, hoje){
         var dataatual = new Date();
         //Caucula idade
         var idade=  calculaIdade(dataNascimento,dataatual);
-        console.log(idade);
-        if(idade >= 10){
+     
+        if(idade >= 7){
             document.getElementById("instrumento").disabled = false;
             document.getElementById("turno").disabled = false;   
         }
@@ -282,6 +283,30 @@ function calculaIdade(nascimento, hoje){
             document.getElementById("instrumento").disabled = true;
             document.getElementById("turno").disabled = true; 
         }
+       
+        if (idade >= 8 && idade <= 9) {
+        // Desabilitar todas as opções, exceto "Musicalização Infantil"
+        for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value !== "Musicalização Infantil") {
+                select.options[i].disabled = true;
+            } else {
+                select.options[i].disabled = false; // Garantir que "Musicalização Infantil" esteja habilitada
+            }
+        }
+    } else {
+        // Habilitar todas as opções
+        for (let i = 0; i < select.options.length; i++) {
+            select.options[i].disabled = false;
+        }
+    }
+  
+    if (idade > 9) {
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === "Musicalização Infantil") {
+                    select.options[i].disabled = true;
+                }
+            }
+    }
 
         if(idade <= 15 )
         {

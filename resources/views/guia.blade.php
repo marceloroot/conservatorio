@@ -13,7 +13,7 @@
 <body>
    <div style="flex:1">
     <div sytle="flex-direction: row">
-      <img src="https://www.novaconcursos.com.br/portal/wp-content/uploads/2015/07/Prefeitura-de-alfenas.jpg" style="max-width:80px;max-height:80px; margin-top:15px" />
+      <img src="https://www.alfenas.mg.gov.br/assets/img/logo_prefeitura.jpg" style="max-width:80px;max-height:80px; margin-top:15px" />
       <span style="font-size:28px; font-weight: bold;"> Prefeitura Municipal de Alfenas</span>
     </div>
     <h2>COMPROVANTE DE NUMERO: {{$data->id}}</h2>
@@ -27,7 +27,7 @@
     <h3> PCD: {{Str::upper($data->pcd) }}</h3>
     <h3> CURSANDO ESCOLA PUBLICA: {{Str::upper($data->cursandoensino) }}</h3>
     <h3> JA TOCA INSTRUMENTO: {{Str::upper($data->jatocainstrumento) }}</h3>
-    <h3> QUAL INSTITUICAO: {{Str::upper($data->jatocainstrumento) }}</h3>
+    <h3> QUAL INSTITUICAO: {{Str::upper($data->nomeinstituicao) }}</h3>
 </div>
 </body>
 </html>

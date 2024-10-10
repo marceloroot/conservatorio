@@ -41,7 +41,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('/dashboard') }}">Inscricao</a></li>
                     @else
                     <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Entrar</a></li>
-                    {{-- <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Inscrever</a></li> --}}
+                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Inscrever</a></li>
                     @endauth
                 </ul>
             </div>
@@ -55,7 +55,7 @@
                 @auth
                 <a class="btn btn-primary btn-xl rounded-pill mt-5"  href="{{ route('dashboard') }}">Ver Inscrição</a>
                 @else
-                {{-- <a href="{{ route('register') }}" class="btn btn-primary btn-xl rounded-pill mt-5"  href="#">Inscrições</a> --}}
+                <a href="{{ route('register') }}" class="btn btn-primary btn-xl rounded-pill mt-5"  href="#">Inscrições</a>
                 @endauth
 
                 <a class="btn btn-primary btn-xl rounded-pill mt-5" target="_blank" href={!! asset('img/manual.pdf')!!}>Manual do Candidato</a>

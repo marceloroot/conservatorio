@@ -93,7 +93,6 @@
                     <option value="Percussão/Bateria">Percussão/Bateria</option>
                     <option value="Flauta Doce">Flauta Doce</option>
                     <option value="Violao Popular">Violao Popular</option>
-                    <option value="Violao Eurudito">Violao Eurudito</option>
                     <option value="Contrabaixo Acústico">Contrabaixo Acústico</option>
                     <option value="Violino">Violino</option>
                     <option value="Viola de Arco">Viola de Arco</option>
@@ -307,8 +306,8 @@ function calculaIdade(nascimento, hoje){
                 }
             }
     }
-
-    if(idade <= 15 )
+   
+    if(idade <= 14 )
     {
         
         for(i=0;i<=select.options.length -1;i++){ 

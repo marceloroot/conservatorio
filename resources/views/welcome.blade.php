@@ -29,9 +29,9 @@
 
        
     </head>
-    <body id="page-top">
+    <body id="page-top" >
      <!-- Navigation-->
-     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+     <nav class="flex items-center justify-between navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container px-5">
             <a class="navbar-brand" href="#page-top">Conservatório de Alfenas</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -47,8 +47,9 @@
             </div>
         </div>
     </nav>
+    <div>
     <!-- Header-->
-    <header class="masthead text-center text-white">
+    <header class="flex items-center justify-center h-screen masthead  text-center text-white">
         <div class="masthead-content">
             <div class="container px-5">
                 <h1 class="masthead-heading mb-0">Centro Municipal de Música Profª Walda Tiso Veiga</h1>
@@ -59,6 +60,11 @@
                 @endauth
 
                 <a class="btn btn-primary btn-xl rounded-pill mt-5" target="_blank" href={!! asset('img/manual.pdf')!!}>Manual do Candidato</a>
+            </div>
+            <div class="pt-5">
+                <p class="font-bold text-2xl uppercase pb-2">INSCRIÇÕES ABERTAS DE 21 A 31 DE OUTUBRO DE 2024</p>
+                <p class="font-bold text-2xl uppercase pb-2">Divulgação Data e Horário do Teste de Aptidão no dia 6 de novembro</p>
+                <p class="font-bold text-2xl uppercase pb-2">Para mais informações leia o manual</p>
             </div>
         </div>
         <div class="bg-circle-1 bg-circle"></div>
@@ -76,6 +82,7 @@
     <footer class="py-5 bg-black">
         <div class="container px-5"><p class="m-0 text-center text-white small">Copyright &copy; PMA ALFENAS</p></div>
     </footer>
+    
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->

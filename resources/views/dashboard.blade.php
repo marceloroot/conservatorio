@@ -90,16 +90,16 @@
                     <option value="Canto Popular">Canto Popular</option>
                     <option value="Canto Lirico">Canto Lirico</option>
                     <option value="Piano">Piano</option>
-                    <option value="Percusao/Bateria">Percusao/Bateria</option>
+                    <option value="Percussão/Bateria">Percussão/Bateria</option>
                     <option value="Flauta Doce">Flauta Doce</option>
                     <option value="Violao Popular">Violao Popular</option>
                     <option value="Violao Eurudito">Violao Eurudito</option>
-                    <option value="Contrabaixo Elétrico">Contrabaixo Elétrico</option>
+                    <option value="Contrabaixo Acústico">Contrabaixo Acústico</option>
                     <option value="Violino">Violino</option>
                     <option value="Viola de Arco">Viola de Arco</option>
                     <option value="Violoncelo">Violoncelo</option>
                     <option value="Metais">Metais</option>
-                    <option value="Guitarra">Guitarra </option>
+                    <option value="Viola Caipira">Viola Caipira </option>
                     <option value="Violoncelo">Violoncelo</option>
                     <option value="Violão Erudito">Violão Erudito</option>
                     <option value="Musicalização Infantil">Musicalização Infantil</option>
@@ -308,52 +308,52 @@ function calculaIdade(nascimento, hoje){
             }
     }
 
-        if(idade <= 15 )
-        {
-           
-           for(i=0;i<=select.options.length -1;i++){ 
-               if(select.item(i).value == "Canto Popular" || select.item(i).value == "Canto Lirico" ){
-                   select.options[i].disabled = true;
-               }
-           }
+    if(idade <= 15 )
+    {
+        
+        for(i=0;i<=select.options.length -1;i++){ 
+            if(select.item(i).value == "Canto Popular" || select.item(i).value == "Canto Lirico" ){
+                select.options[i].disabled = true;
+            }
+        }
 
-       }
-       else{
-        for(i=0;i<=select.options.length-1;i++){ 
-               if(select.item(i).value == "Canto Popular" || select.item(i).value == "Canto Lirico" ){
-                   select.options[i].disabled = false;
-               }
-           }
-       }
+    }
+    else{
+    for(i=0;i<=select.options.length-1;i++){ 
+            if(select.item(i).value == "Canto Popular" || select.item(i).value == "Canto Lirico" ){
+                select.options[i].disabled = false;
+            }
+        }
+    }
 
-        //CAULCULA O NOTURNO SE FOR MAIOR DE IDADE DE
-        if(idade < 16 )
-        {
-           
-           for(i=0;i<=selectturno.options.length -1;i++){ 
-               if(selectturno.item(i).value == "Noite" ){
-                selectturno.options[i].disabled = true;
-               }
-           }
+    //CAULCULA O NOTURNO SE FOR MAIOR DE IDADE DE
+    if(idade < 16 )
+    {
+        
+        for(i=0;i<=selectturno.options.length -1;i++){ 
+            if(selectturno.item(i).value == "Noite" ){
+            selectturno.options[i].disabled = true;
+            }
+        }
 
-       }
-       else{
-        for(i=0;i<=selectturno.options.length-1;i++){ 
-               if(selectturno.item(i).value == "Noite"){
-                selectturno.options[i].disabled = false;
-               }
-           }
-       }
+    }
+    else{
+    for(i=0;i<=selectturno.options.length-1;i++){ 
+            if(selectturno.item(i).value == "Noite"){
+            selectturno.options[i].disabled = false;
+            }
+        }
+    }
        
      }
-    }  
+  }  
 
 
-    function validaHorarioInstrumento()
+  function validaHorarioInstrumento()
    {
-    var data=document.getElementById("turno").value;
+    var turno=document.getElementById("turno").value;
     document.getElementById("instrumento").value = "";
-    if(data !=null){
+    if(turno !=null){
         
         
         //pega o instrumento

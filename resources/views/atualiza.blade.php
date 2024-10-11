@@ -89,29 +89,30 @@
 
                 <label for="texto" class="form-label">Instrumento <span style="color:red">*</span></label>
                 <select class="form-select" name="instrumento" required  id="instrumento"  aria-label="Default select example">
-                    <option  value="">Selecione um instrumento</option>
-                    <option value="Saxofone">Saxofone</option>
-                    <option value="Clarinete">Clarinete</option>
-                    <option value="Canto Popular">Canto Popular</option>
-                    <option value="Canto Lirico">Canto Lirico</option>
-                    <option value="Piano">Piano</option>
-                    <option value="Percusao/Bateria">Percusao/Bateria</option>
-                    <option value="Flauta Doce">Flauta Doce</option>
-                    <option value="Violao Popular">Violao Popular</option>
-                    <option value="Violao Eurudito">Violao Eurudito</option>
-                    <option value="Contrabaixo Elétrico">Contrabaixo Elétrico</option>
-                    <option value="Violino">Violino</option>
-                    <option value="Viola de Arco">Viola de Arco</option>
-                    <option value="Violoncelo">Violoncelo</option>
-                    <option value="Metais">Metais</option>
-                    <option value="Guitarra">Guitarra</option>
-                    <option value="Violoncelo">Violoncelo</option>
-                    <option value="Violão Erudito">Violão Erudito</option>
+                  <option  value="">Selecione um instrumento</option>
+                  <option value="Saxofone">Saxofone</option>
+                  <option value="Clarinete">Clarinete</option>
+                  <option value="Canto Popular">Canto Popular</option>
+                  <option value="Canto Lirico">Canto Lirico</option>
+                  <option value="Piano">Piano</option>
+                  <option value="Percussão/Bateria">Percussão/Bateria</option>
+                  <option value="Flauta Doce">Flauta Doce</option>
+                  <option value="Violao Popular">Violao Popular</option>
+                  <option value="Violao Eurudito">Violao Eurudito</option>
+                  <option value="Contrabaixo Acústico">Contrabaixo Acústico</option>
+                  <option value="Violino">Violino</option>
+                  <option value="Viola de Arco">Viola de Arco</option>
+                  <option value="Violoncelo">Violoncelo</option>
+                  <option value="Metais">Metais</option>
+                  <option value="Viola Caipira">Viola Caipira </option>
+                  <option value="Violoncelo">Violoncelo</option>
+                  <option value="Violão Erudito">Violão Erudito</option>
+                  <option value="Musicalização Infantil">Musicalização Infantil</option>
 
-                  </select>
-                @if($errors->has('instrumento'))
-                <div class="error">{{ $errors->first('instrumento') }}</div>
-                @endif
+                </select>
+              @if($errors->has('instrumento'))
+              <div class="error">{{ $errors->first('instrumento') }}</div>
+              @endif
               </div>
 
     
@@ -292,7 +293,7 @@ function onBlurDataNasc(){
 
   var dataMinima = new Date();
   //Data Minima
-  dataMinima.setFullYear(dataMinima.getFullYear() -10);
+  dataMinima.setFullYear(dataMinima.getFullYear() -8);
  
   if(dataNascimento >= dataMinima){
     document.getElementById("datanasc").value =" ";
@@ -334,7 +335,7 @@ $('#cpf').mask('000.000.000-00', {
 function calculaIdade(nascimento, hoje){
     return Math.floor(Math.ceil(Math.abs(nascimento.getTime() - hoje.getTime()) / (1000 * 3600 * 24)) / 365.25);
 }
-
+validaDataInstrumento()
 
    function validaDataInstrumento()
    {
@@ -349,7 +350,7 @@ function calculaIdade(nascimento, hoje){
         var dataatual = new Date();
         //Caucula idade
         var idade=  calculaIdade(dataNascimento,dataatual);
-        if(idade >= 10){
+        if(idade >= 7){
             document.getElementById("instrumento").disabled = false;
             document.getElementById("turno").disabled = false;   
         }
@@ -357,8 +358,50 @@ function calculaIdade(nascimento, hoje){
             document.getElementById("instrumento").disabled = true;
             document.getElementById("turno").disabled = true; 
         }
-    
-        //CAULCULA O NOTURNO SE FOR MAIOR DE IDADE DE
+       
+        if (idade >= 8 && idade <= 9) {
+        // Desabilitar todas as opções, exceto "Musicalização Infantil"
+        for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value !== "Musicalização Infantil") {
+                select.options[i].disabled = true;
+            } else {
+                select.options[i].disabled = false; // Garantir que "Musicalização Infantil" esteja habilitada
+            }
+        }
+    } else {
+        // Habilitar todas as opções
+        for (let i = 0; i < select.options.length; i++) {
+            select.options[i].disabled = false;
+        }
+    }
+  
+    if (idade > 9) {
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === "Musicalização Infantil") {
+                    select.options[i].disabled = true;
+                }
+            }
+    }
+
+        if(idade <= 15 )
+        {
+           
+           for(i=0;i<=select.options.length -1;i++){ 
+            console.log("select.item",select.item)
+               if(select.item(i).value == "Canto Popular" || select.item(i).value == "Canto Lirico" ){
+                   select.options[i].disabled = true;
+               }
+           }
+
+       }
+       else{
+        for(i=0;i<=select.options.length-1;i++){ 
+          console.log("select.item",select.item)
+               if(select.item(i).value == "Canto Popular" || select.item(i).value == "Canto Lirico" ){
+                   select.options[i].disabled = false;
+               }
+           }
+       }
         if(idade < 16 )
         {
            
@@ -418,6 +461,7 @@ function calculaIdade(nascimento, hoje){
           
 
     }  
+  }
     
 
 </script>

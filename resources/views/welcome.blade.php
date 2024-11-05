@@ -60,6 +60,7 @@
                 @endauth
 
                 <a class="btn btn-primary btn-xl rounded-pill mt-5" target="_blank" href={!! asset('img/manual.pdf')!!}>Manual do Candidato</a>
+                <a class="btn btn-primary btn-xl rounded-pill mt-5" target="_blank" href={!! asset('img/listaetpaunica.pdf')!!}>Lista etapa Unica 2025-1</a>
             </div>
             <div class="pt-5">
                 <p class="font-bold text-2xl uppercase pb-2">INSCRIÇÕES ABERTAS DE 21 A 31 DE OUTUBRO DE 2024</p>
